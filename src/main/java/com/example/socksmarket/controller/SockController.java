@@ -43,7 +43,7 @@ public class SockController {
     }
 
     @Operation(
-            summary = "Регистрирует отпуск товара со склада ",
+            summary = "Регистрирует отпуск товара со склада "
     )
     @PutMapping
     public void issueSocks(@RequestBody SockRequest sockRequest) {
