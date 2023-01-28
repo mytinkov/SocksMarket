@@ -26,6 +26,14 @@ public class SockService {
     }
 
     public void issueSock(SockRequest sockRequest) {
+        decreaseSockQuantity(sockRequest);
+    }
+
+    public void removeDefectiveSocks(SockRequest sockRequest) {
+        decreaseSockQuantity(sockRequest);
+    }
+
+    private void decreaseSockQuantity(SockRequest sockRequest) {
         validateRequest(sockRequest);
         Sock sock = mapToSock(sockRequest);
         int sockQuantity = socks.getOrDefault(sock, 0);
@@ -61,10 +69,10 @@ public class SockService {
         if (sockRequest.getColor() == null || sockRequest.getSize() == null) {
             throw new InvalidSockRequestException("All fields should be filled");
         }
-        if (sockRequest.getQuantity() > 0) {
+        if (sockRequest.getQuantity() <= 0) {
             throw new InvalidSockRequestException("Quantity should be mote than 0");
         }
-        if (sockRequest.getCottonPercentage() < 0 && sockRequest.getCottonPercentage() > 100) {
+        if (sockRequest.getCottonPercentage() < 0 || sockRequest.getCottonPercentage() > 100) {
             throw new InvalidSockRequestException("Cotton percentage should be between 0 and 100");
         }
     }
