@@ -1,8 +1,6 @@
 # SocksMarket
-
 Project Functions: A web application through which a warehouse can manage and automate inventory tracking for an online sock store
 Technologies: Spring, Maven
-Language: Java
 
 The application's external interface is presented in the form of a REST API.
 
