@@ -1,12 +1,13 @@
-Project Name: SocksMarket
-Project Functions: A web application through which a warehouse can manage and automate inventory tracking for an online sock store 
+# SocksMarket
+
+Project Functions: A web application through which a warehouse can manage and automate inventory tracking for an online sock store
 Technologies: Spring, Maven
 Language: Java
 
-External Interface of the Application
 The application's external interface is presented in the form of a REST API.
 
 Product Characteristics
+
 The product has the following characteristics:
 * Sock color
 * Sock size
@@ -53,30 +54,30 @@ Request parameters are passed in the URL:
 * cottonMax: maximum cotton content in the product
 
 Results:
-HTTP 200: Request successful, the result in the response body is a string representation of an integer
-HTTP 400: Request parameters are missing or have an incorrect format
-HTTP 500: An error occurred not related to the caller
+* HTTP 200: Request successful, the result in the response body is a string representation of an integer
+* HTTP 400: Request parameters are missing or have an incorrect format
+* HTTP 500: An error occurred not related to the caller
 
 # DELETE /api/socks
 Registers the disposal of defective (damaged) socks.
 
 Request parameters are sent in the request body as a JSON object with the following attributes:
-color: sock color, string
-size: sock size, numerical value
-cottonPart: percentage of cotton content in socks
-quantity: quantity of sock pairs, integer greater than 0
+* color: sock color, string
+* size: sock size, numerical value
+* cottonPart: percentage of cotton content in socks
+* quantity: quantity of sock pairs, integer greater than 0
 
 Results:
-HTTP 200: Disposal of the product from stock registered successfully
-HTTP 400: Request parameters are missing or have an incorrect format
-HTTP 500: An error occurred not related to the caller
+* HTTP 200: Disposal of the product from stock registered successfully
+* HTTP 400: Request parameters are missing or have an incorrect format
+* HTTP 500: An error occurred not related to the caller
 
 # Example Requests:
-POST /api/socks?color=red&36&cottonPart=40&quantity=5: Adds five pairs of red socks, size 36, with 40% cotton content to the stock.
-PUT /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the release of five pairs of red socks, size 36, with 40% cotton content from the stock.
-GET /api/socks?color=red&36&cottonmin=90: Should return the total quantity of red socks, size 36, with a cotton content of more than 90%.
-GET /api/socks?color=red&36&cottonmax=10: Should return the total quantity of red socks, size 36, with a cotton content of less than 10%.
-DELETE /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the disposal of five pairs of red socks, size 36, with 40% cotton content.
+* POST /api/socks?color=red&36&cottonPart=40&quantity=5: Adds five pairs of red socks, size 36, with 40% cotton content to the stock.
+* PUT /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the release of five pairs of red socks, size 36, with 40% cotton content from the stock.
+* GET /api/socks?color=red&36&cottonmin=90: Should return the total quantity of red socks, size 36, with a cotton content of more than 90%.
+* GET /api/socks?color=red&36&cottonmax=10: Should return the total quantity of red socks, size 36, with a cotton content of less than 10%.
+* DELETE /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the disposal of five pairs of red socks, size 36, with 40% cotton content.
 
 # Basic Level of Implementation:
 * The web application is implemented as a RESTful service.
