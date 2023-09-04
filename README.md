@@ -44,8 +44,9 @@ Results:
 * HTTP 200: Socks released from stock successfully
 * HTTP 400: The product is not available in the required quantity in stock, or the request parameters have an incorrect format
 * HTTP 500: An error occurred not related to the caller
-* GET /api/socks
-* Returns the total quantity of socks in stock that match the criteria specified in the request parameters. In this method, the quantity of socks remains unchanged since we are requesting information about the products in stock.
+
+### GET /api/socks
+Returns the total quantity of socks in stock that match the criteria specified in the request parameters. In this method, the quantity of socks remains unchanged since we are requesting information about the products in stock.
 
 Request parameters are passed in the URL:
 * color: sock color, string
