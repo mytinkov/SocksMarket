@@ -14,9 +14,9 @@ The product has the following characteristics:
 * Sock composition
 * Availability in stock
 
-# List of HTTP URL Methods
+## List of HTTP URL Methods
 
-# POST /api/socks
+### POST /api/socks
 Registers the arrival of goods in stock.
 
 Request parameters are sent in the request body as a JSON object with the following attributes:
@@ -30,7 +30,7 @@ Results:
 * HTTP 400: Request parameters are missing or have an incorrect format
 * HTTP 500: An error occurred not related to the caller
 
-# PUT /api/socks
+### PUT /api/socks
 Registers the release of socks from the stock. Here, parameters and results are similar, but the total quantity of socks of the specified color and composition decreases.
 
 Request parameters are sent in the request body as a JSON object with the following attributes:
@@ -58,7 +58,7 @@ Results:
 * HTTP 400: Request parameters are missing or have an incorrect format
 * HTTP 500: An error occurred not related to the caller
 
-# DELETE /api/socks
+### DELETE /api/socks
 Registers the disposal of defective (damaged) socks.
 
 Request parameters are sent in the request body as a JSON object with the following attributes:
@@ -72,14 +72,14 @@ Results:
 * HTTP 400: Request parameters are missing or have an incorrect format
 * HTTP 500: An error occurred not related to the caller
 
-# Example Requests:
+### Example Requests:
 * POST /api/socks?color=red&36&cottonPart=40&quantity=5: Adds five pairs of red socks, size 36, with 40% cotton content to the stock.
 * PUT /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the release of five pairs of red socks, size 36, with 40% cotton content from the stock.
 * GET /api/socks?color=red&36&cottonmin=90: Should return the total quantity of red socks, size 36, with a cotton content of more than 90%.
 * GET /api/socks?color=red&36&cottonmax=10: Should return the total quantity of red socks, size 36, with a cotton content of less than 10%.
 * DELETE /api/socks?color=red&36&cottonPart=40&quantity=5: Registers the disposal of five pairs of red socks, size 36, with 40% cotton content.
 
-# Basic Level of Implementation:
+### Basic Level of Implementation:
 * The web application is implemented as a RESTful service.
 * The web application is based on the Spring (Boot) Framework.
 * All CRUD methods are implemented: POST, PUT, GET, DELETE.
